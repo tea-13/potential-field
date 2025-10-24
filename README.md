@@ -16,22 +16,14 @@ pip install numpy matplotlib pillow
 
 ## Структура (пример)
 
-- `task1_continuous.py` — плоскость (ООП), две карты: «Путь+препятствия» и **тепловая/векторная/потоковая** карта поля.
-- `task2_grid.py` — решётка (ООП), жёсткая маска занятости + SDF (клиренс), запрет corner-cutting, динамика, анимация.
+- `lab3.py` — плоскость (ООП), две карты: «Путь+препятствия» и **тепловая/векторная/потоковая** карта поля.
+- `lab3.1.py` — решётка (ООП), жёсткая маска занятости + SDF (клиренс), запрет corner-cutting, динамика, анимация.
 
 > Имена условные — используйте свои файлы. Код ничего не сохраняет сам по себе.
 
 ---
 
 ## Задача 1 — как получить скриншот
-
-В файле с задачей 1 есть пример вызова визуализации. После отрисовки добавьте сохранение:
-
-```python
-import matplotlib.pyplot as plt
-# ... ваш вызов viz.plot_two_maps(..., mode="heatmap"/"quiver"/"stream")
-plt.savefig("media/task1.png", dpi=180, bbox_inches="tight")
-```
 
 ![Задача 1 — путь и поле](assets/lab3.png)
 
@@ -44,21 +36,6 @@ plt.savefig("media/task1.png", dpi=180, bbox_inches="tight")
 ---
 
 ## Задача 2 — как получить GIF (анимация)
-
-Запустите анимацию и сохраните её в GIF:
-
-```python
-from task2_grid import animate_simulation, AnimationConfig
-# field, stepper — как в примере в конце файла задачи 2
-anim_cfg = AnimationConfig(mode="heat", interval_ms=120, trail=300)
-anim = animate_simulation(field, stepper, anim_cfg)
-
-# сохранить GIF (нужен pillow)
-anim.save("media/task2.gif", writer="pillow", fps=1000//anim_cfg.interval_ms)
-# или просто показать окно:
-# import matplotlib.pyplot as plt; plt.show()
-```
-
 
 ![Задача 2 — анимация](assets/lab3.1.gif)
 
